@@ -1,0 +1,903 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Classical Language — Collection of Role-Playing Games</title>
+<style>
+:root {
+  --paper:#fffdf8;
+  --sidebar:#f0ede5;
+  --ink:#233b38;
+  --accent:#98712e;
+  --line:#ddd6c9;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  background:#e9e6df;
+  color:var(--ink);
+  font:17px/1.75 Georgia,"Times New Roman",serif;
+}
+.layout {
+  display:grid;
+  grid-template-columns:310px minmax(0,1fr);
+  max-width:1600px;
+  margin:auto;
+  min-height:100vh;
+}
+aside {
+  background:var(--sidebar);
+  border-right:1px solid var(--line);
+  padding:25px 18px;
+  height:100vh;
+  overflow-y:auto;
+  position:sticky;
+  top:0;
+  font:14px/1.5 Arial,sans-serif;
+}
+.brand {
+  font:700 20px Georgia;
+  color:#153e3c;
+  margin-bottom:7px;
+}
+.small { font-size:12px; color:#736b5f; }
+nav button {
+  display:block;
+  width:100%;
+  text-align:left;
+  border:0;
+  background:transparent;
+  padding:9px 10px;
+  color:#25413e;
+  cursor:pointer;
+  border-radius:3px;
+  font:inherit;
+}
+nav button:hover,
+nav button.active { background:#e0e5d9; }
+nav details { margin:10px 0; }
+nav summary {
+  cursor:pointer;
+  font-weight:bold;
+  padding:9px;
+}
+nav .lesson-link {
+  padding-left:18px;
+  font-size:13px;
+}
+main {
+  background:var(--paper);
+  padding:45px 7%;
+  min-height:100vh;
+}
+article { max-width:950px; margin:auto; }
+h1,h2,h3 {
+  font-weight:normal;
+  color:#153f3d;
+  line-height:1.3;
+}
+h1 { font-size:39px; }
+h2 {
+  font-size:29px;
+  border-bottom:1px solid var(--line);
+  padding-bottom:9px;
+  margin-top:36px;
+}
+h3 { font-size:22px; margin-top:27px; }
+p { margin:14px 0; }
+.subtitle {
+  color:#8a6d40;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font:12px Arial;
+}
+.author { text-align:center; margin:35px 0; }
+.cover { text-align:center; padding:70px 15px; }
+.cover h1 { font-size:46px; }
+.rule {
+  width:110px;
+  height:3px;
+  background:var(--accent);
+  margin:25px auto;
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin:20px 0;
+  font-size:16px;
+}
+th,td {
+  border:1px solid var(--line);
+  padding:11px 13px;
+  text-align:left;
+  vertical-align:top;
+}
+th { background:#eee9de; }
+tr:nth-child(even) { background:#faf8f3; }
+.latin {
+  background:#f3eee3;
+  border-left:3px solid var(--accent);
+  padding:20px 25px;
+  font-style:italic;
+  font-size:19px;
+}
+.exercise { margin:18px 0; padding:10px 0; }
+button.action {
+  border:0;
+  background:#204e49;
+  color:white;
+  padding:11px 19px;
+  cursor:pointer;
+  font:14px Arial;
+  border-radius:4px;
+}
+button.action:hover { background:#39766d; }
+textarea,input[type=text] {
+  width:100%;
+  padding:12px;
+  border:1px solid #bbb3a6;
+  font:16px Georgia;
+  border-radius:4px;
+  background:#fff;
+}
+textarea { min-height:110px; }
+.page { display:none; }
+.page.active { display:block; }
+.note {
+  background:#f5f1e7;
+  padding:15px;
+  border-left:3px solid #b28a45;
+}
+hr {
+  border:0;
+  border-top:1px solid var(--line);
+  margin:30px 0;
+}
+@media(max-width:850px) {
+  .layout { display:block; }
+  aside {
+    position:relative;
+    height:auto;
+    max-height:330px;
+  }
+  main { padding:22px; }
+  .cover { padding:30px 0; }
+  .cover h1 { font-size:31px; }
+}
+@media print {
+  aside,.action { display:none!important; }
+  .layout { display:block; }
+  main { padding:0; }
+  .page { display:block!important; break-after:page; }
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+<aside>
+  <div class="brand">CLASSICAL LANGUAGE</div>
+  <div class="small">Interactive University Textbook</div>
+  <hr>
+  <nav id="nav">
+    <button onclick="showPage('home',this)">Home / Title Page</button>
+    <button onclick="showPage('introduction',this)">Introduction</button>
+    <button onclick="showPage('contents',this)">Table of Contents</button>
+    <div id="moduleNavigation"></div>
+    <button onclick="showPage('assessment',this)">Assessment Criteria</button>
+    <button onclick="showPage('conclusion',this)">Conclusion</button>
+    <button onclick="showPage('references',this)">References</button>
+  </nav>
+</aside>
+
+<main>
+<article>
+
+<section class="page active" id="home">
+  <div class="cover">
+    <div class="subtitle">M. Auezov South Kazakhstan University</div>
+    <div class="rule"></div>
+    <h1>COLLECTION OF<br>ROLE-PLAYING GAMES</h1>
+    <h2>Classical Language</h2>
+    <p>For Practical Classes in Foreign Philology,<br>
+    Translation Studies and Two Foreign Languages</p>
+    <p>Interactive Educational Textbook</p>
+    <div class="author">
+      <strong>Authors</strong><br>
+      Khalmirzaeva K.S.<br>
+      Khalmirzaev E.E.
+    </div>
+    <p>Shymkent — 2026</p>
+    <button class="action" onclick="showPage('contents')">
+      Open Table of Contents
+    </button>
+  </div>
+</section>
+
+<section class="page" id="introduction">
+  <h1>Introduction</h1>
+  <p>Role-playing games provide opportunities for students
+  to connect classical language knowledge with communication,
+  translation, historical interpretation and collaboration.</p>
+  <p>This textbook includes thirty learning activities
+  organized into five modules. Every lesson contains
+  learning objectives, a Latin dialogue, vocabulary,
+  role assignments, practical exercises, control questions
+  and assessment criteria.</p>
+  <h2>Learning Objectives</h2>
+  <ol>
+    <li>Develop confidence in reading and using Latin expressions.</li>
+    <li>Understand vocabulary and grammatical patterns in context.</li>
+    <li>Practice translation and intercultural communication.</li>
+    <li>Develop creativity through structured role-playing.</li>
+    <li>Evaluate linguistic accuracy and collaborative performance.</li>
+  </ol>
+  <h2>Methodology</h2>
+  <p>Students should read the model dialogue, analyze the
+  vocabulary, select roles, prepare a performance, complete
+  the practical activities and reflect on the results.</p>
+</section>
+
+<section class="page" id="contents">
+  <h1>Table of Contents</h1>
+  <div id="contentsBody"></div>
+</section>
+
+<section class="page" id="lesson">
+  <div id="lessonBody"></div>
+</section>
+
+<section class="page" id="assessment">
+  <h1>Assessment Criteria</h1>
+  <table>
+    <tr><th>Criterion</th><th>Points</th></tr>
+    <tr><td>Latin vocabulary and grammatical accuracy</td><td>25</td></tr>
+    <tr><td>Dialogue performance and pronunciation</td><td>20</td></tr>
+    <tr><td>Creative interpretation of the role</td><td>20</td></tr>
+    <tr><td>Interaction and teamwork</td><td>15</td></tr>
+    <tr><td>Problem-solving and cultural understanding</td><td>10</td></tr>
+    <tr><td>Completion and reflection</td><td>10</td></tr>
+    <tr><th>Total</th><th>100</th></tr>
+  </table>
+  <h2>Performance Levels</h2>
+  <p>90–100: Excellent; 75–89: Good;
+  60–74: Satisfactory; below 60: Further practice required.</p>
+</section>
+
+<section class="page" id="conclusion">
+  <h1>Conclusion</h1>
+  <p>Role-playing activities encourage active participation
+  and make classical language learning more engaging.
+  Students develop linguistic knowledge together with
+  teamwork, creativity and intercultural awareness.</p>
+  <p>The activities may be adapted to different university
+  groups and classroom conditions.</p>
+</section>
+
+<section class="page" id="references">
+  <h1>References</h1>
+  <ol id="referencesBody"></ol>
+</section>
+
+</article>
+</main>
+</div>
+
+<script>
+const modules = [
+  "Academic & Intercultural Communication",
+  "Morphosyntax in Communicative Contexts",
+  "Professional Discourse & Mediation",
+  "Media, Culture & Translation Practice",
+  "Workplace, Society & Intercultural Pragmatics"
+];
+
+const titles = [
+  "Academic Networking and Self-Presentation",
+  "Comparing Cultural Standards",
+  "Language Biography Bingo",
+  "International University Partnerships",
+  "The Mysterious Manuscript",
+  "Studying Abroad: Argumentation Domino",
+  "Press Conference and Reported Speech",
+  "Polite Requests and Professional Advice",
+  "Presenting Statistics and Figures",
+  "Business Telephone and Crisis Management",
+  "Translation Studies Coordinates",
+  "Specialized Terminology Relay",
+  "International Internship Interview",
+  "Pronunciation and Intonation",
+  "Idioms and Expressions Sudoku",
+  "Artificial Intelligence Debate",
+  "City Tour for Visiting Professors",
+  "Formal Correspondence",
+  "Visualizing Abstract Concepts",
+  "Higher Education Reform Panel",
+  "Loanwords and Latin Equivalents",
+  "Formal and Informal Registers",
+  "Compound Terminology Puzzle",
+  "Linguistic Mediation in Conflict",
+  "Project Planning and Scheduling",
+  "Product Presentation and Negotiation",
+  "Literary Personality Mystery",
+  "Changing Language Professions",
+  "Generations and Family Structures",
+  "Business Dinner and Etiquette"
+];
+
+const dialogs = [
+  [
+    ["Marcus","Salve! Quod tibi nomen est?"],
+    ["Julia","Julia mihi nomen est. Et tibi?"],
+    ["Marcus","Marcus sum. Linguam Latinam studeo."],
+    ["Julia","Ubi studes?"],
+    ["Marcus","In universitate studeo."],
+    ["Julia","Quae disciplina tibi placet?"],
+    ["Marcus","Historia et litterae antiquae mihi placent."],
+    ["Julia","Optime! De studiis nostris colloquamur."]
+  ],
+  [
+    ["Hospes","Salve! Unde venis?"],
+    ["Studens","Ex Kazachstania venio."],
+    ["Hospes","Quid de moribus patriae tuae narrabis?"],
+    ["Studens","Hospites libenter accipimus."],
+    ["Hospes","Apud Romanos quoque hospitalitas clara erat."],
+    ["Studens","Mores nostri aliquando differunt."],
+    ["Hospes","Sed amicitia populos coniungit."],
+    ["Studens","Ita est. Culturas comparare utile est."]
+  ],
+  [
+    ["Anna","Quot linguas discis?"],
+    ["Paulus","Tres linguas disco."],
+    ["Anna","Quae sunt illae linguae?"],
+    ["Paulus","Kazachica, Anglica et Latina."],
+    ["Anna","Cur linguam Latinam discis?"],
+    ["Paulus","Quia historiam et verba antiqua amo."],
+    ["Anna","Visne in terra externa studere?"],
+    ["Paulus","Ita, novas culturas cognoscere volo."]
+  ],
+  [
+    ["A","Salve! De cooperatione universitatum loquamur."],
+    ["B","Libenter. Quot discipuli venient?"],
+    ["A","Quinque discipuli venient."],
+    ["B","Quae documenta necessaria sunt?"],
+    ["A","Epistula et testimonium studiorum."],
+    ["B","Quando documenta mittentur?"],
+    ["A","Ante Kalendas Maias."],
+    ["B","Bene. Cooperationem parare possumus."]
+  ],
+  [
+    ["Historian","Codicem antiquum in bibliotheca inveni."],
+    ["Researcher","Ubi codex inventus est?"],
+    ["Historian","In armario veteri iacebat."],
+    ["Researcher","Quis eum scripsit?"],
+    ["Historian","Nomen auctoris obscurum est."],
+    ["Researcher","Fortasse in ultima pagina indicium est."],
+    ["Historian","Ita! Hic annus scriptus est."],
+    ["Researcher","Ergo historiam codicis investigemus."]
+  ],
+  [
+    ["A","Studium in terra externa utile est."],
+    ["B","Sed familia longe abest."],
+    ["A","Novas linguas discere possumus."],
+    ["B","Vita tamen cara esse potest."],
+    ["A","Amicos novos inveniemus."],
+    ["B","Difficultates quoque considerare debemus."],
+    ["A","Utraque sententia recta est."],
+    ["B","Ergo consilium diligenter capiamus."]
+  ],
+  [
+    ["Reporter","Quid rector dixit?"],
+    ["Speaker","Rector dixit universitatem crescere."],
+    ["Reporter","Quid de disciplinis nuntiavit?"],
+    ["Speaker","Dixit linguas antiquas magni momenti esse."],
+    ["Reporter","Quot discipuli aderant?"],
+    ["Speaker","Multi discipuli aderant."],
+    ["Reporter","Gratias tibi ago."],
+    ["Speaker","Libenter. Nuntium accurate refer."]
+  ],
+  [
+    ["Student","Magister, licetne mihi quaerere?"],
+    ["Teacher","Certe. Quid vis?"],
+    ["Student","Possumne librum tuum mutuari?"],
+    ["Teacher","Potes, sed diligenter cura."],
+    ["Student","Quando librum reddere debeo?"],
+    ["Teacher","Cras, quaeso."],
+    ["Student","Gratias tibi ago."],
+    ["Teacher","Libenter. Bene stude!"]
+  ],
+  [
+    ["A","Quot discipuli anno superiore erant?"],
+    ["B","Viginti discipuli erant."],
+    ["A","Quot hoc anno sunt?"],
+    ["B","Triginta sunt."],
+    ["A","Numerus discipulorum crevit."],
+    ["B","Ita est. Decem discipuli additi sunt."],
+    ["A","Quid hoc significat?"],
+    ["B","Studium linguae Latinae magis placet."]
+  ],
+  [
+    ["Secretary","Salve, officium universitatis."],
+    ["Student","Salve. Cum professore loqui volo."],
+    ["Secretary","Professor nunc occupatus est."],
+    ["Student","Quando redibit?"],
+    ["Secretary","Post unam horam redibit."],
+    ["Student","Possumne nuntium relinquere?"],
+    ["Secretary","Certe. Quid ei dicam?"],
+    ["Student","Dic ei me cras venturum esse."]
+  ],
+  [
+    ["Translator","Quid significat verbum libertas?"],
+    ["Student","Libertas est status hominis liberi."],
+    ["Translator","Quomodo id vertis?"],
+    ["Student","Sensum et contextum considero."],
+    ["Translator","Quid est textus originalis?"],
+    ["Student","Textus e quo translatio fit."],
+    ["Translator","Et quid est translatio bona?"],
+    ["Student","Quae sensum fideliter exprimit."]
+  ],
+  [
+    ["Leader","Verbum nostrum est scientia."],
+    ["Student","Scientia ex verbo scire venit."],
+    ["Leader","Da exemplum sententiae."],
+    ["Student","Scientia potentia est."],
+    ["Leader","Nunc verbum cultura explica."],
+    ["Student","Cultura ad educationem pertinet."],
+    ["Leader","Bene! Aliud verbum elige."],
+    ["Student","Historia est memoria rerum gestarum."]
+  ],
+  [
+    ["Interviewer","Cur hoc munus petis?"],
+    ["Candidate","Quia linguas et translationem amo."],
+    ["Interviewer","Quae sunt facultates tuae?"],
+    ["Candidate","Diligenter laboro."],
+    ["Interviewer","Potesne cum aliis collaborare?"],
+    ["Candidate","Ita, libenter in grege laboro."],
+    ["Interviewer","Quando laborare potes?"],
+    ["Candidate","A mense proximo paratus sum."]
+  ],
+  [
+    ["Teacher","Hanc sententiam clara voce lege."],
+    ["Student","Veni, vidi, vici."],
+    ["Teacher","Nunc lente repete."],
+    ["Student","Veni. Vidi. Vici."],
+    ["Teacher","Ubi pausam facies?"],
+    ["Student","Post singula verba."],
+    ["Teacher","Optime. Nunc fortius dic."],
+    ["Student","VENI, VIDI, VICI!"]
+  ],
+  [
+    ["A","Quid significat carpe diem?"],
+    ["B","Occasionem praesentem cape."],
+    ["A","Et quid significat tempus fugit?"],
+    ["B","Tempus celeriter transit."],
+    ["A","Quid est festina lente?"],
+    ["B","Celeriter age, sed cum cura."],
+    ["A","Ubi his sententiis uti possumus?"],
+    ["B","In vita cotidiana et in studiis."]
+  ],
+  [
+    ["Moderator","Potestne machina libros antiquos vertere?"],
+    ["A","Machina verba celeriter vertit."],
+    ["B","Sed homo culturam melius intellegit."],
+    ["Moderator","Quae est utilitas machinae?"],
+    ["A","Tempus servare potest."],
+    ["B","Sed errores quoque facere potest."],
+    ["Moderator","Quid igitur faciendum est?"],
+    ["A","Homo translationem examinare debet."]
+  ],
+  [
+    ["Guide","Salvete! Urbem nostram visitabimus."],
+    ["Visitor","Quae loca videbimus?"],
+    ["Guide","Museum et monumenta historica."],
+    ["Visitor","Quid de historia urbis scis?"],
+    ["Guide","Urbs nostra multas culturas coniunxit."],
+    ["Visitor","Ubi museum est?"],
+    ["Guide","Prope forum urbis."],
+    ["Visitor","Gratias pro itinere!"]
+  ],
+  [
+    ["Student","Epistulam scribere debeo."],
+    ["Librarian","Quid accidit?"],
+    ["Student","Librum in bibliotheca reliqui."],
+    ["Librarian","Quod nomen libri est?"],
+    ["Student","Historia linguae Latinae."],
+    ["Librarian","Quando librum amisisti?"],
+    ["Student","Heri post meridiem."],
+    ["Librarian","Quaeso, epistulam mitte."]
+  ],
+  [
+    ["A","Quid est iustitia?"],
+    ["B","Iustitia est virtus."],
+    ["A","Quomodo eam describis?"],
+    ["B","Suum cuique tribuere."],
+    ["A","Quomodo imaginem creabis?"],
+    ["B","Libram pingam."],
+    ["A","Cur libram eligis?"],
+    ["B","Quia aequitatem significat."]
+  ],
+  [
+    ["Rector","Quid in studiis mutare debemus?"],
+    ["Student","Plures exercitationes desideramus."],
+    ["Professor","Litteras antiquas quoque servare debemus."],
+    ["Rector","Quid de technologia?"],
+    ["Student","Instrumenta digitalia utilia sunt."],
+    ["Professor","Sed libros legere necesse est."],
+    ["Rector","Utraque sententia bona est."],
+    ["Student","Ergo methodos coniungamus."]
+  ],
+  [
+    ["A","Quid significat universitas?"],
+    ["B","Communitatem scholasticam significare potest."],
+    ["A","Quid est auditorium?"],
+    ["B","Locus ubi discipuli audiunt."],
+    ["A","Quid significat cultura?"],
+    ["B","Ad educationem et mores pertinet."],
+    ["A","Multa verba moderna Latina sunt."],
+    ["B","Ita, lingua Latina adhuc utilis est."]
+  ],
+  [
+    ["A","Salve, amice! Quid agis?"],
+    ["B","Bene valeo. Et tu?"],
+    ["A","Optime. Quomodo magistrum salutabis?"],
+    ["B","Salve, magister!"],
+    ["A","Quid in epistula formali scribes?"],
+    ["B","Salutem plurimam dico."],
+    ["A","Cur forma sermonis mutatur?"],
+    ["B","Quia personae et res diversae sunt."]
+  ],
+  [
+    ["Teacher","Quid significat res publica?"],
+    ["Student","Rem communem civium."],
+    ["Teacher","Quid est ius civile?"],
+    ["Student","Ius quod ad cives pertinet."],
+    ["Teacher","Quid est lex?"],
+    ["Student","Regula communitatis."],
+    ["Teacher","Coniunge verba in sententia."],
+    ["Student","Lex civibus utilis esse debet."]
+  ],
+  [
+    ["Administrator","Conventus hodie non erit."],
+    ["Mediator","Cur conventus mutatus est?"],
+    ["Administrator","Quia professor aegrotat."],
+    ["Mediator","Nuntium hospiti explicabo."],
+    ["Guest","Quando conveniemus?"],
+    ["Mediator","Cras hora decima."],
+    ["Guest","Gratias pro explicatione."],
+    ["Mediator","Libenter. Omnes certiores faciam."]
+  ],
+  [
+    ["Leader","Quando conventum parare possumus?"],
+    ["A","Die Lunae tempus habeo."],
+    ["B","Ego die Martis liber sum."],
+    ["Leader","Num die Martis convenire possumus?"],
+    ["A","Ita, sed post meridiem."],
+    ["B","Mihi quoque convenit."],
+    ["Leader","Quis documenta parabit?"],
+    ["A","Ego documenta parabo."]
+  ],
+  [
+    ["Inventor","Novum lexicon digitale creavimus."],
+    ["Investor","Quid hoc lexicon praebet?"],
+    ["Inventor","Verba Latina et exercitationes."],
+    ["Investor","Quibus discipulis utile est?"],
+    ["Inventor","Discipulis universitatum."],
+    ["Investor","Quantum pretium est?"],
+    ["Inventor","Pretium modicum est."],
+    ["Investor","Consilium vestrum mihi placet."]
+  ],
+  [
+    ["A","Hic poeta Romanus carmina scripsit."],
+    ["B","Num Vergilius est?"],
+    ["A","Non. De amore saepe scripsit."],
+    ["B","Num Ovidius est?"],
+    ["A","Non. Saeculo primo ante Christum vixit."],
+    ["B","Fortasse Catullus est."],
+    ["A","Recte respondes!"],
+    ["B","Nunc ego alium poetam describam."]
+  ],
+  [
+    ["Advisor","Quod munus exercere vis?"],
+    ["Student","Interpres fieri volo."],
+    ["Advisor","Quae scientiae necessariae sunt?"],
+    ["Student","Scientia linguarum et culturarum."],
+    ["Advisor","Quid de technologia putas?"],
+    ["Student","Instrumenta digitalia utilia sunt."],
+    ["Advisor","Quid tamen maximi momenti est?"],
+    ["Student","Iudicium et intellegentia humana."]
+  ],
+  [
+    ["Grandfather","Cur computatro tam diu uteris?"],
+    ["Student","Quia per interrete linguas disco."],
+    ["Grandfather","Libros quoque legere debes."],
+    ["Student","Recte dicis, ave."],
+    ["Grandfather","Quid de historia familiae scis?"],
+    ["Student","Multa adhuc discere volo."],
+    ["Grandfather","De maioribus nostris narrabo."],
+    ["Student","Gratias! Libenter audiam."]
+  ],
+  [
+    ["Host","Salvete! Mensam tribus personis petimus."],
+    ["Waiter","Salvete! Huc venite, quaeso."],
+    ["Guest","Quid hodie edere possumus?"],
+    ["Waiter","Panem, holera et pulmentum habemus."],
+    ["Guest","Ego holera et aquam volo."],
+    ["Host","Mihi quoque aqua placet."],
+    ["Waiter","Statim cibum afferam."],
+    ["Host","Gratias tibi agimus."]
+  ]
+];
+
+const activities = [
+  "Academic conference networking",
+  "Intercultural welcome meeting",
+  "Language-learning interview bingo",
+  "University exchange negotiation",
+  "Historical manuscript investigation",
+  "Studying abroad debate",
+  "University press conference",
+  "Polite workplace requests",
+  "Student enrollment presentation",
+  "Telephone crisis simulation",
+  "Translation terminology guessing game",
+  "Latin word-building competition",
+  "Internship selection interview",
+  "Intonation and public speaking",
+  "Latin sayings challenge",
+  "Artificial intelligence debate",
+  "Historical city tour",
+  "Formal letter writing",
+  "Abstract concepts drawing game",
+  "University reform panel",
+  "Latin roots matching game",
+  "Formal and informal speech",
+  "Legal and academic terminology",
+  "Conflict mediation simulation",
+  "Conference scheduling negotiation",
+  "Digital dictionary sales pitch",
+  "Guess the classical author",
+  "Professional career interview",
+  "Family and generations discussion",
+  "Restaurant etiquette simulation"
+];
+
+const latinWords = [
+  "salve|hello|Salve, amice!",
+  "nomen|name|Quod tibi nomen est?",
+  "lingua|language|Linguam Latinam disco.",
+  "universitas|university|In universitate studeo.",
+  "codex|manuscript|Codicem antiquum invenimus.",
+  "studium|study|Studium utile est.",
+  "dicere|to say|Rector dixit.",
+  "quaeso|please|Da mihi librum, quaeso.",
+  "numerus|number|Numerus crevit.",
+  "nuntius|message|Nuntium relinquo.",
+  "libertas|freedom|Libertas magni momenti est.",
+  "scientia|knowledge|Scientia potentia est.",
+  "munus|position|Hoc munus peto.",
+  "vox|voice|Clara voce lege.",
+  "tempus|time|Tempus fugit.",
+  "machina|machine|Machina verba vertit.",
+  "urbs|city|Urbem visitamus.",
+  "epistula|letter|Epistulam scribo.",
+  "iustitia|justice|Iustitia virtus est.",
+  "rector|rector|Rector loquitur.",
+  "auditorium|lecture hall|In auditorio sumus.",
+  "magister|teacher|Magister docet.",
+  "lex|law|Lex civibus utilis est.",
+  "conventus|meeting|Conventus cras erit.",
+  "quando|when|Quando conveniemus?",
+  "pretium|price|Pretium modicum est.",
+  "poeta|poet|Poeta carmina scribit.",
+  "interpres|interpreter|Interpres verba vertit.",
+  "avus|grandfather|Avus narrat.",
+  "mensa|table|Mensam petimus."
+];
+
+const references = [
+  "Perlmann-Balme, M., Schwalb, S., & Matussek, M. (2017). Sicher! B1+ / B2. Hueber Verlag.",
+  "Koithan, U., Schmitz, H., Sieber, T., & Sonntag, R. (2016). Aspekte neu B1 plus / B2. Ernst Klett Sprachen.",
+  "Dengler, S., Mayr-Sieber, T., Rusch, P., & Schmitz, H. (2018). Netzwerk neu B1. Ernst Klett Sprachen.",
+  "Buscha, A., & Szita, S. (2013). B-Grammatik. Schubert-Verlag.",
+  "Dreyer, H., & Schmitt, R. (2012). Lehr- und Übungsbuch der deutschen Grammatik – aktuell. Hueber Verlag.",
+  "Helbig, G., & Buscha, J. (2017). Deutsche Grammatik. Ernst Klett Sprachen.",
+  "Koller, W. (2011). Einführung in die Übersetzungswissenschaft. A. Francke Verlag.",
+  "Ter-Minasova, S. G. (2018). Til zhane madenitaralyk kommunikatsiya. National Translation Bureau.",
+  "Fromkin, V., Rodman, R., & Hyams, N. (2018). Til bilimine kirispe. National Translation Bureau.",
+  "Karbozova, G. K., Halmirsajewa, K. S., & Halmirsajew, E. E. (2018). Eigenschaften Kompetenzmodell auf das Thema der interkulturellen Kommunikation. M. Auezov South Kazakhstan University."
+];
+
+function showPage(id, button) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  if (button) button.classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function buildNavigation() {
+  let nav = "", toc = "";
+  modules.forEach((m,n) => {
+    nav += `<details ${n===0?"open":""}><summary>Module ${n+1}</summary>`;
+    toc += `<h2>Module ${n+1}: ${m}</h2><ol start="${n*6+1}">`;
+    for (let i=n*6; i<(n+1)*6; i++) {
+      nav += `<button class="lesson-link" onclick="openLesson(${i})">
+        ${i+1}. ${titles[i]}</button>`;
+      toc += `<li><a href="#" onclick="openLesson(${i});return false">
+        ${titles[i]}</a></li>`;
+    }
+    nav += "</details>";
+    toc += "</ol>";
+  });
+  document.getElementById("moduleNavigation").innerHTML = nav;
+  document.getElementById("contentsBody").innerHTML = toc;
+}
+
+function openLesson(i) {
+  const dialogue = dialogs[i];
+  const [word,meaning,example] = latinWords[i].split("|");
+
+  const dialogueRows = dialogue.map((line,n) =>
+    `<tr><td>${n+1}</td><td>${line[0]}</td>
+    <td><i>${line[1]}</i></td></tr>`
+  ).join("");
+
+  const roles = [...new Set(dialogue.map(d=>d[0]))];
+  const roleRows = roles.map((r,n) =>
+    `<tr><td>Student ${String.fromCharCode(65+n)}</td>
+    <td>${r}</td><td>Read the assigned lines and respond naturally.</td></tr>`
+  ).join("");
+
+  document.getElementById("lessonBody").innerHTML = `
+  <div class="subtitle">Module ${Math.floor(i/6)+1} · Role-Playing Game ${i+1}</div>
+  <h1>${titles[i]}</h1>
+
+  <h2>Learning Objectives</h2>
+  <p>Students develop Latin reading, speaking and translation
+  skills through the theme of ${titles[i].toLowerCase()}.
+  The activity promotes teamwork, creative thinking
+  and contextual vocabulary use.</p>
+
+  <h2>Reading and Explanation</h2>
+  <p>This lesson introduces an academic or social situation
+  in which participants must communicate clearly,
+  listen carefully and solve a practical problem.
+  Read the model dialogue and identify the purpose
+  of each speaker's contribution.</p>
+
+  <div class="latin">
+    ${dialogue.slice(0,2).map(d=>d[1]).join(" ")}
+  </div>
+
+  <h2>Vocabulary Table</h2>
+  <table>
+    <tr><th>Latin</th><th>English Meaning</th><th>Example</th></tr>
+    <tr><td>${word}</td><td>${meaning}</td><td><i>${example}</i></td></tr>
+    <tr><td>salve</td><td>hello</td><td><i>Salve, amice!</i></td></tr>
+    <tr><td>quaeso</td><td>please</td><td><i>Da mihi librum, quaeso.</i></td></tr>
+    <tr><td>gratias ago</td><td>thank you</td><td><i>Gratias tibi ago.</i></td></tr>
+  </table>
+
+  <h2>Role Assignment</h2>
+  <table>
+    <tr><th>Participant</th><th>Character</th><th>Responsibility</th></tr>
+    ${roleRows}
+  </table>
+
+  <h2>Model Dialogue</h2>
+  <p>Read the following Latin dialogue aloud.
+  Pay attention to pronunciation and meaning.</p>
+  <table>
+    <tr><th>No.</th><th>Speaker</th><th>Latin Dialogue</th></tr>
+    ${dialogueRows}
+  </table>
+
+  <h2>Practical Exercises</h2>
+
+  <div class="exercise">
+    <h3>Exercise 1. Dialogue Performance</h3>
+    <ol>
+      <li>Work with a partner and assign the roles.</li>
+      <li>Read the dialogue aloud twice.</li>
+      <li>Exchange roles and repeat without looking at the text.</li>
+      <li>Perform the dialogue for another group.</li>
+    </ol>
+  </div>
+
+  <div class="exercise">
+    <h3>Exercise 2. Vocabulary and Translation</h3>
+    <p>Translate the following expressions into English
+    and explain their use in context.</p>
+    <table>
+      <tr><th>Latin Expression</th><th>Student Translation</th></tr>
+      <tr><td>${example}</td><td>______________________</td></tr>
+      <tr><td>Salve, amice!</td><td>______________________</td></tr>
+      <tr><td>Gratias tibi ago.</td><td>______________________</td></tr>
+    </table>
+  </div>
+
+  <div class="exercise">
+    <h3>Exercise 3. Creative Role-Playing</h3>
+    <p><b>Situation:</b> ${activities[i]}.</p>
+    <p>Prepare a new dialogue of at least six lines.
+    Include a greeting, an exchange of information,
+    a problem or question and an appropriate conclusion.</p>
+  </div>
+
+  <div class="exercise">
+    <h3>Exercise 4. Unexpected Situation</h3>
+    <p id="surprise">Click the button to reveal a scenario.</p>
+    <button class="action" onclick="surpriseScenario()">Reveal Scenario</button>
+    <p>Adapt the dialogue to the new situation and
+    perform it with your group.</p>
+  </div>
+
+  <div class="exercise">
+    <h3>Exercise 5. Write Your Own Dialogue</h3>
+    <textarea id="studentWriting" placeholder="A: Salve! ..."></textarea>
+    <p><button class="action" onclick="saveWriting(${i})">
+    Save Dialogue</button></p>
+  </div>
+
+  <h2>Control Questions</h2>
+  <ol>
+    <li>What is the main purpose of the dialogue?</li>
+    <li>Which Latin expressions are most useful in this situation?</li>
+    <li>How do the characters respond to each other?</li>
+    <li>How could the situation be changed?</li>
+    <li>What new vocabulary did you learn?</li>
+  </ol>
+
+  <h2>Assessment Criteria</h2>
+  <table>
+    <tr><th>Criterion</th><th>Points</th></tr>
+    <tr><td>Vocabulary and grammatical accuracy</td><td>25</td></tr>
+    <tr><td>Pronunciation and fluency</td><td>20</td></tr>
+    <tr><td>Role performance and creativity</td><td>20</td></tr>
+    <tr><td>Teamwork and interaction</td><td>15</td></tr>
+    <tr><td>Problem-solving</td><td>10</td></tr>
+    <tr><td>Task completion</td><td>10</td></tr>
+    <tr><th>Total</th><th>100</th></tr>
+  </table>
+
+  <p class="note"><b>Further Reading:</b>
+  Consult the references listed in this textbook.</p>
+
+  <button class="action" onclick="showPage('contents')">
+    Back to Contents
+  </button>
+  `;
+
+  showPage("lesson");
+  let saved = localStorage.getItem("writing"+i);
+  if (saved) document.getElementById("studentWriting").value = saved;
+}
+
+function surpriseScenario() {
+  const situations = [
+    "A participant arrives late and must explain why.",
+    "An important document is missing.",
+    "Two characters disagree and must reach an agreement.",
+    "A new visitor joins the conversation.",
+    "The participants have only two minutes to solve the problem.",
+    "One character must ask three unexpected questions."
+  ];
+  document.getElementById("surprise").textContent =
+    situations[Math.floor(Math.random()*situations.length)];
+}
+
+function saveWriting(i) {
+  localStorage.setItem("writing"+i,
+    document.getElementById("studentWriting").value);
+  alert("Your dialogue has been saved in this browser.");
+}
+
+document.getElementById("referencesBody").innerHTML =
+  references.map(r=>`<li>${r}</li>`).join("");
+
+buildNavigation();
+</script>
+</body>
+</html>
